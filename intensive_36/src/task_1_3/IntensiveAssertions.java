@@ -2,7 +2,7 @@ package task_1_3;
 
 import task_1_1.IntensiveList;
 
-public class intensiveAssertions {
+public class IntensiveAssertions {
 
     public static boolean assertSort(IntensiveList list) {
         /*
@@ -10,5 +10,4 @@ public class intensiveAssertions {
         */
         return false;
     }
-
 }
