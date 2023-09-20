@@ -33,25 +33,33 @@ public class IntensiveCollections_PavelSidorov<E extends Comparable<E>> {
             }
             IntensiveList<E> right = new IntensiveArrayList_PavelSidorov<>();
             IntensiveList<E> left = new IntensiveArrayList_PavelSidorov<>();
+            IntensiveList<E> central = new IntensiveArrayList_PavelSidorov<>();
             E pivot = (E) list.get(0);
 
             for (int i = 0; i < list.size(); i++) {
                 if (pivot.compareTo((E) list.get(i)) < 0) {
                     right.add(list.get(i));
-                }
-                if (pivot.compareTo((E) list.get(i)) > 0) {
+                } else if (pivot.compareTo((E) list.get(i)) > 0) {
                     left.add(list.get(i));
+                } else if (pivot.compareTo((E) list.get(i)) == 0) {
+                    central.add(list.get(i));
                 }
             }
-            left.add(pivot);
 
-            return merge(quickSort(left), quickSort(right));
+            return merge(quickSort(left), quickSort(right), central);
         }
         throw new IllegalArgumentException(LIST_ERROR);
     }
 
-    private static <E extends Comparable<E>> IntensiveList<E> merge(IntensiveList<E> left, IntensiveList<E> right) {
+    private static <E extends Comparable<E>> IntensiveList<E> merge(
+            IntensiveList<E> left,
+            IntensiveList<E> right,
+            IntensiveList<E> central
+    ) {
         if (left != null && right != null) {
+            for (int i = 0; i < central.size(); i++) {
+                left.add(central.get(i));
+            }
             for (int i = 0; i < right.size(); i++) {
                 left.add(right.get(i));
             }

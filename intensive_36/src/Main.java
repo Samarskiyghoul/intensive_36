@@ -49,13 +49,13 @@ public class Main {
         System.out.println(students.set(0, "Wally0"));
         System.out.println(students);
 
-        System.out.println(students.set(1, "Wally1"));
+        System.out.println(students.set(1, "Wally0"));
         System.out.println(students);
 
-        System.out.println(students.set(2, "Wally2"));
+        System.out.println(students.set(2, "Wally0"));
         System.out.println(students);
 
-        System.out.println(students.set(3, "Wally3"));
+        System.out.println(students.set(3, "Wally0"));
         System.out.println(students);
 
         System.out.println(students.remove(students.size() - 1) + " " + students);
@@ -65,6 +65,31 @@ public class Main {
         System.out.println(students.remove(0) + " " + students);
         System.out.println(students.remove(0) + " " + students);
         System.out.println(students.remove(0) + " " + students);
+
+        IntensiveList<String> people = new IntensiveArrayList_PavelSidorov<>(1);
+//        List<String> people = new ArrayList<>();
+
+        people.add("aaa");
+        people.add("456");
+        people.add("456");
+        people.add("456");
+        people.add("567");
+        people.add("bbb");
+        people.add("aaa");
+        people.add("ddd");
+        people.add("eee");
+        people.add("fff");
+        people.add("ccc");
+        people.add("ccc");
+        people.add("ccc");
+        people.add("ggg");
+        people.add("123");
+        people.add("234");
+        people.add("345");
+        people.add("aaa");
+//        Collections.sort(people);
+//        System.out.println("SORTED PEOPLE " + people);
+        System.out.println("SORTED PEOPLE " + IntensiveCollections_PavelSidorov.quickSort(people));
 
     }
 }
