@@ -43,7 +43,7 @@ public class IntensiveArrayList_ZhirayrAvanesyan<E> implements IntensiveList<E> 
      * @return true, если элемент был успешно добавлен.
      */
     @Override
-    public boolean add(Object o) {
+    public boolean add(E o) {
         if(size == capacity)
             resize(capacity * 2 + 1);
         arrayData[size++] = o;
@@ -57,7 +57,7 @@ public class IntensiveArrayList_ZhirayrAvanesyan<E> implements IntensiveList<E> 
      * @param element Элемент для вставки.
      */
     @Override
-    public void add(int index, Object element) {
+    public void add(int index, E element) {
        validateIndex(index);
         if(size == capacity)
             resize(capacity * 2 + 1);
@@ -72,9 +72,9 @@ public class IntensiveArrayList_ZhirayrAvanesyan<E> implements IntensiveList<E> 
      * @return Элемент списка.
      */
     @Override
-    public Object get(int index) {
+    public E get(int index) {
         validateIndex(index);
-        return arrayData[index];
+        return (E) arrayData[index];
     }
 
     /**
@@ -85,8 +85,8 @@ public class IntensiveArrayList_ZhirayrAvanesyan<E> implements IntensiveList<E> 
      * @return Старый элемент, который был заменен.
      */
     @Override
-    public Object set(int index, Object element) {
-        Object oldElement = arrayData[index];
+    public E set(int index, E element) {
+        E oldElement = (E) arrayData[index];
         arrayData[index] = element;
         return oldElement;
     }
@@ -98,9 +98,9 @@ public class IntensiveArrayList_ZhirayrAvanesyan<E> implements IntensiveList<E> 
      * @return Удаленный элемент.
      */
     @Override
-    public Object remove(int index) {
+    public E remove(int index) {
         validateIndex(index);
-        Object removedObject = arrayData[index];
+        E removedObject = (E) arrayData[index];
         System.arraycopy(arrayData,index + 1,arrayData,index,this.size--);
         return removedObject;
     }
