@@ -84,7 +84,7 @@ public class IntensiveArrayList_PavelSidorov<E> implements IntensiveList<E> {
     /**
      * Adds an element to the specific index and shifts elements to the right.
      *
-     * @param index index to adding at.
+     * @param index   index to adding at.
      * @param element for adding.
      */
     @Override
@@ -113,7 +113,7 @@ public class IntensiveArrayList_PavelSidorov<E> implements IntensiveList<E> {
     /**
      * Replaces an element at the specified position.
      *
-     * @param index index at which the specified element is to be inserted
+     * @param index   index at which the specified element is to be inserted
      * @param element element to be inserted
      * @return the element previously at the specified position.
      */

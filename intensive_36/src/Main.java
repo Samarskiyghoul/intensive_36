@@ -1,14 +1,11 @@
 import task_1_1.IntensiveList;
 import task_1_1.impl.IntensiveArrayList_PavelSidorov;
-
-import java.util.ArrayList;
-import java.util.List;
+import task_1_2.impl.IntensiveCollections_PavelSidorov;
 
 public class Main {
 
     public static void main(String[] args) {
         IntensiveList<String> students = new IntensiveArrayList_PavelSidorov<>(1);
-//        List<String> students = new ArrayList<>();
 
         System.out.println(students);
 
@@ -44,16 +41,21 @@ public class Main {
 
         System.out.println(students.get(0) + " " + students.get(students.size() - 1));
 
-        students.set(0, "Wally0");
+        students = IntensiveCollections_PavelSidorov.quickSort(students);
+        System.out.println("SORTED " + students);
+
+        System.out.println(students.get(0) + " " + students.get(students.size() - 1));
+
+        System.out.println(students.set(0, "Wally0"));
         System.out.println(students);
 
-        students.set(1, "Wally1");
+        System.out.println(students.set(1, "Wally1"));
         System.out.println(students);
 
-        students.set(2, "Wally2");
+        System.out.println(students.set(2, "Wally2"));
         System.out.println(students);
 
-        students.set(3, "Wally3");
+        System.out.println(students.set(3, "Wally3"));
         System.out.println(students);
 
         System.out.println(students.remove(students.size() - 1) + " " + students);
