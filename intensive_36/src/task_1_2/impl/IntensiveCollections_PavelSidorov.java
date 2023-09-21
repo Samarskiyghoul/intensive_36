@@ -7,17 +7,10 @@ import java.util.Comparator;
 
 /**
  * IntensiveCollections utils.
- *
- * @param <E> Generic parameter.
  */
 
-public class IntensiveCollections_PavelSidorov<E extends Comparable<E>> {
+public class IntensiveCollections_PavelSidorov {
     private static final String LIST_ERROR = "List is null";
-    private Comparator<E> comparator;
-
-    public IntensiveCollections_PavelSidorov(Comparator<E> comparator) {
-        this.comparator = comparator;
-    }
 
     /**
      * Quick sort for IntensiveList structure
@@ -51,11 +44,32 @@ public class IntensiveCollections_PavelSidorov<E extends Comparable<E>> {
         throw new IllegalArgumentException(LIST_ERROR);
     }
 
-    private static <E extends Comparable<E>> IntensiveList<E> merge(
-            IntensiveList<E> left,
-            IntensiveList<E> right,
-            IntensiveList<E> central
-    ) {
+    public static <E> IntensiveList<E> quickSort(IntensiveList<E> list, Comparator<E> comparator) {
+        if (list != null && comparator != null) {
+            if (list.size() <= 1) {
+                return list;
+            }
+            IntensiveList<E> right = new IntensiveArrayList_PavelSidorov<>();
+            IntensiveList<E> left = new IntensiveArrayList_PavelSidorov<>();
+            IntensiveList<E> central = new IntensiveArrayList_PavelSidorov<>();
+            E pivot = (E) list.get(0);
+
+            for (int i = 0; i < list.size(); i++) {
+                if (comparator.compare(pivot, (E) list.get(i)) < 0) {
+                    right.add(list.get(i));
+                } else if (comparator.compare(pivot, (E) list.get(i)) > 0) {
+                    left.add(list.get(i));
+                } else if (comparator.compare(pivot, (E) list.get(i)) == 0) {
+                    central.add(list.get(i));
+                }
+            }
+
+            return merge(quickSort(left, comparator), quickSort(right, comparator), central);
+        }
+        throw new IllegalArgumentException(LIST_ERROR);
+    }
+
+    private static <E> IntensiveList<E> merge(IntensiveList<E> left, IntensiveList<E> right, IntensiveList<E> central) {
         if (left != null && right != null) {
             for (int i = 0; i < central.size(); i++) {
                 left.add(central.get(i));
@@ -67,5 +81,4 @@ public class IntensiveCollections_PavelSidorov<E extends Comparable<E>> {
         }
         throw new IllegalArgumentException(LIST_ERROR);
     }
-
 }

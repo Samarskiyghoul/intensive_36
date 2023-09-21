@@ -72,9 +72,6 @@ public class IntensiveArrayList_PavelSidorov<E> implements IntensiveList<E> {
      */
     @Override
     public boolean add(Object element) {
-        if (element == null) {
-            return false;
-        }
         this.data[size] = element;
         ++size;
         newCapacity();
