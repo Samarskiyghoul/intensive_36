@@ -13,7 +13,7 @@ public class IntensiveCollections_PavelSidorov {
     private static final String LIST_ERROR = "List is null";
 
     /**
-     * Quick sort for IntensiveList structure
+     * Quicksort function for IntensiveList structure using Comparable
      *
      * @param list unsorted IntensiveList
      * @param <E>  Generic parameter for IntensiveList.
@@ -44,6 +44,14 @@ public class IntensiveCollections_PavelSidorov {
         throw new IllegalArgumentException(LIST_ERROR);
     }
 
+    /**
+     * Quicksort function for IntensiveList structure using Comparator
+     *
+     * @param list       unsorted IntensiveList
+     * @param comparator sorting comparator
+     * @param <E>        Generic parameter for IntensiveList.
+     * @return sorted IntensiveList
+     */
     public static <E> IntensiveList<E> quickSort(IntensiveList<E> list, Comparator<E> comparator) {
         if (list != null && comparator != null) {
             if (list.size() <= 1) {
