@@ -4,6 +4,9 @@ import task_1_2.impl.IntensiveCollections_PavelSidorov;
 import task_1_3.impl.IntensiveAssertions_PavelSidorov;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.Comparator;
 
 public class Main {
@@ -62,13 +65,13 @@ public class Main {
         System.out.println(students.set(3, "Wally0"));
         System.out.println(students);
 
-        System.out.println(students.remove(students.size() - 1) + " " + students);
-        System.out.println(students.remove(students.size() - 1) + " " + students);
-        System.out.println(students.remove(students.size() - 1) + " " + students);
-        System.out.println(students.remove(3) + " " + students);
-        System.out.println(students.remove(0) + " " + students);
-        System.out.println(students.remove(0) + " " + students);
-        System.out.println(students.remove(0) + " " + students);
+        System.out.println("REMOVE " + students.remove(students.size() - 1) + " " + students);
+        System.out.println("REMOVE " + students.remove(students.size() - 1) + " " + students);
+        System.out.println("REMOVE " + students.remove(students.size() - 1) + " " + students);
+        System.out.println("REMOVE " + students.remove(2) + " " + students);
+        System.out.println("REMOVE " + students.remove(0) + " " + students);
+        System.out.println("REMOVE " + students.remove(0) + " " + students);
+        System.out.println("REMOVE " + students.remove(0) + " " + students);
 //--------------
 
         IntensiveList<String> people = new IntensiveArrayList_PavelSidorov<>(1);
@@ -118,7 +121,11 @@ public class Main {
         System.out.println("SORTED Persons" + persons);
 
         System.out.println("Are Persons sorted? " + IntensiveAssertions_PavelSidorov.assertSort(persons, personComparator));
+
+
+        Collections.sort(new ArrayList<String>());
     }
+
 
 }
 

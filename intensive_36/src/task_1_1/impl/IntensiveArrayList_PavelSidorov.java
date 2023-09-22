@@ -14,11 +14,7 @@ public class IntensiveArrayList_PavelSidorov<E> implements IntensiveList<E> {
     /**
      * Default initial capacity.
      */
-    private static final int DEFAULT_CAPACITY = 20;
-    /**
-     * The threshold parameter for array's bounds.
-     */
-    private static final float THRESHOLD = 0.95f;
+    private static final int DEFAULT_CAPACITY = 10;
     /**
      * Ratio is the coefficient for increasing array's capacity.
      */
@@ -38,13 +34,13 @@ public class IntensiveArrayList_PavelSidorov<E> implements IntensiveList<E> {
     /**
      * The main elements storage of this data structure.
      */
-    private Object[] data;
+    private E[] data;
 
     /**
      * Constructs an empty list with the default initial capacity
      */
     public IntensiveArrayList_PavelSidorov() {
-        defaultData(this.initialCapacity);
+        defaultData(initialCapacity);
     }
 
     /**
@@ -71,9 +67,8 @@ public class IntensiveArrayList_PavelSidorov<E> implements IntensiveList<E> {
      * @return true on success.
      */
     @Override
-    public boolean add(Object element) {
-        this.data[size] = element;
-        ++size;
+    public boolean add(E element) {
+        data[size++] = element;
         newCapacity();
         return true;
     }
@@ -85,13 +80,10 @@ public class IntensiveArrayList_PavelSidorov<E> implements IntensiveList<E> {
      * @param element for adding.
      */
     @Override
-    public void add(int index, Object element) {
+    public void add(int index, E element) {
         checkRange(index);
-        for (int i = this.size; i > index; i--) {
-            this.data[i] = this.data[i - 1];
-        }
-        this.data[index] = element;
-        ++size;
+        System.arraycopy(data, index, data, index + 1, (size++) - index);
+        data[index] = element;
         newCapacity();
     }
 
@@ -102,9 +94,9 @@ public class IntensiveArrayList_PavelSidorov<E> implements IntensiveList<E> {
      * @return the element at the specified position.
      */
     @Override
-    public Object get(int index) {
+    public E get(int index) {
         checkRange(index);
-        return this.data[index];
+        return data[index];
     }
 
     /**
@@ -115,10 +107,10 @@ public class IntensiveArrayList_PavelSidorov<E> implements IntensiveList<E> {
      * @return the element previously at the specified position.
      */
     @Override
-    public Object set(int index, Object element) {
+    public E set(int index, E element) {
         checkRange(index);
-        Object removedElement = this.data[index];
-        this.data[index] = element;
+        E removedElement = data[index];
+        data[index] = element;
         return removedElement;
     }
 
@@ -129,16 +121,10 @@ public class IntensiveArrayList_PavelSidorov<E> implements IntensiveList<E> {
      * @return the element that was removed.
      */
     @Override
-    public Object remove(int index) {
+    public E remove(int index) {
         checkRange(index);
-        Object removedElement = this.data[index];
-        if (index < size) {
-            for (int i = index; i < size; i++) {
-                this.data[i] = this.data[i + 1];
-            }
-        }
-        this.data[size] = null;
-        --size;
+        E removedElement = data[index];
+        System.arraycopy(data, index + 1, data, index, (size--) - index);
         return removedElement;
     }
 
@@ -147,7 +133,7 @@ public class IntensiveArrayList_PavelSidorov<E> implements IntensiveList<E> {
      */
     @Override
     public void removeAll() {
-        defaultData(this.initialCapacity);
+        defaultData(initialCapacity);
     }
 
     /**
@@ -157,26 +143,26 @@ public class IntensiveArrayList_PavelSidorov<E> implements IntensiveList<E> {
      */
     private void defaultData(int initialCapacity) {
         if (initialCapacity > 0) {
-            this.data = new Object[initialCapacity];
             this.initialCapacity = initialCapacity;
-            this.capacity = initialCapacity;
+            data = (E[]) new Object[initialCapacity];
+            capacity = initialCapacity;
         } else if (initialCapacity == 0) {
-            this.data = new Object[DEFAULT_CAPACITY];
             this.initialCapacity = DEFAULT_CAPACITY;
-            this.capacity = DEFAULT_CAPACITY;
+            data = (E[]) new Object[DEFAULT_CAPACITY];
+            capacity = DEFAULT_CAPACITY;
         } else {
             throw new IllegalArgumentException("Capacity must be positive but it's: " + initialCapacity);
         }
-        this.size = 0;
+        size = 0;
     }
 
     /**
      * Increases the capacity when it's getting to threshold value.
      */
     private void newCapacity() {
-        if (size >= (capacity * THRESHOLD)) {
-            this.capacity = this.capacity * CAPACITY_RATIO;
-            this.data = Arrays.copyOf(data, this.capacity);
+        if (size == data.length) {
+            capacity = capacity * CAPACITY_RATIO;
+            data = Arrays.copyOf(data, capacity);
         }
     }
 
@@ -186,7 +172,7 @@ public class IntensiveArrayList_PavelSidorov<E> implements IntensiveList<E> {
      * @param index specified index.
      */
     private void checkRange(int index) {
-        if (index >= this.size || index < 0) {
+        if (index >= size || index < 0) {
             throw new IllegalArgumentException("Index: " + index + " is out of array size bounds");
         }
     }
