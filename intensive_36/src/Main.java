@@ -4,14 +4,24 @@ import task_1_2.impl.IntensiveCollections_PavelSidorov;
 import task_1_3.impl.IntensiveAssertions_PavelSidorov;
 
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.Comparator;
+import java.util.*;
 
 public class Main {
 
     public static void main(String[] args) {
+//        IntensiveList<Integer> randomList = new IntensiveArrayList_PavelSidorov<>(1);
+//        Random random = new Random();
+        // random             naturalOrder        reverseOrder
+        // 130(140)/65(70)    199/99              199/170
+        // 130(140)/65(70)    133/133             133/133
+//        for (int i = 0; i < 100; i++) {
+//            randomList.add(random.nextInt());
+//        }
+//        randomList = IntensiveCollections_PavelSidorov.quickSort(randomList, Comparator.reverseOrder());
+//        System.out.println(randomList);
+//        System.out.println(IntensiveAssertions_PavelSidorov.assertSort(randomList));
+//        System.out.println(IntensiveAssertions_PavelSidorov.assertSort(IntensiveCollections_PavelSidorov.quickSort(randomList)));
+
         IntensiveList<String> students = new IntensiveArrayList_PavelSidorov<>(1);
 
         System.out.println(students);
@@ -121,9 +131,6 @@ public class Main {
         System.out.println("SORTED Persons" + persons);
 
         System.out.println("Are Persons sorted? " + IntensiveAssertions_PavelSidorov.assertSort(persons, personComparator));
-
-
-        Collections.sort(new ArrayList<String>());
     }
 
 

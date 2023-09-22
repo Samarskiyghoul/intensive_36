@@ -6,9 +6,10 @@ import java.util.Arrays;
 import java.util.Objects;
 
 /**
- * Custom ArrayList Implementation by Pavel Sidorov
+ * Custom ArrayList Implementation
  *
  * @param <E> Generic parameter.
+ * @author Pavel Sidorov
  */
 public class IntensiveArrayList_PavelSidorov<E> implements IntensiveList<E> {
     /**
@@ -146,13 +147,17 @@ public class IntensiveArrayList_PavelSidorov<E> implements IntensiveList<E> {
             this.initialCapacity = initialCapacity;
             data = (E[]) new Object[initialCapacity];
             capacity = initialCapacity;
+
         } else if (initialCapacity == 0) {
             this.initialCapacity = DEFAULT_CAPACITY;
             data = (E[]) new Object[DEFAULT_CAPACITY];
             capacity = DEFAULT_CAPACITY;
+
         } else {
             throw new IllegalArgumentException("Capacity must be positive but it's: " + initialCapacity);
+
         }
+
         size = 0;
     }
 
