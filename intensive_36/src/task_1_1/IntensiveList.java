@@ -1,18 +1,25 @@
 package task_1_1;
 
+import java.util.Spliterator;
+import java.util.stream.Stream;
+
 public interface IntensiveList<E> {
 
     int size();
 
-    boolean add(Object o);
+    boolean add(E o);
 
-    void add(int index, Object element);
+    void add(int index, E element);
 
-    Object get(int index);
+    E get(int index);
 
-    Object set(int index, Object element);
+    E set(int index, E element);
 
-    Object remove(int index);
+    E remove(int index);
 
     void removeAll();
+
+    Spliterator<E> spliterator();
+
+    Stream<E> stream();
 }
