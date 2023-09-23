@@ -4,9 +4,9 @@ out/
 intensive_36.iml
 target/
 *.iml
-!/Training.iml
+/Training.iml
 ### IntelliJ IDEA ###
-../.idea
+.idea
 *.iws
 *.ipr
 ### Eclipse ###
