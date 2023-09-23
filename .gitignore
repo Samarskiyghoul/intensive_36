@@ -3,10 +3,11 @@ out/
 !**/src/test/**/out/
 intensive_36.iml
 target/
-### IntelliJ IDEA ###
-.idea
-*.iws
 *.iml
+!/Training.iml
+### IntelliJ IDEA ###
+../.idea
+*.iws
 *.ipr
 ### Eclipse ###
 .apt_generated
@@ -32,4 +33,4 @@ bin/
 
 ### Mac OS ###
 .DS_Store!/Training.iml
-!/Training.iml
+
