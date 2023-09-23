@@ -5,15 +5,29 @@ import task_1_1.IntensiveList;
 import java.util.Arrays;
 import java.util.Objects;
 
-
+/**
+ * myArrayList Implementation
+ *
+ * @param <E> Generic parameter.
+ * @author Anton Teslia
+ */
 public class IntensiveArrayList_AntonTeslia<E> implements IntensiveList<E> {
     private int size;
     Object[] elementData;
 
+    /**
+     * Create a list with a default size of 10
+     */
     public IntensiveArrayList_AntonTeslia() {
         elementData = (E[]) new Object[10];
     }
 
+    /**
+     * Create a list with a non-standard default size
+     *
+     * @param capacity initialize array size
+     * @throws IllegalArgumentException - if {@param capacity} < 0
+     */
     public IntensiveArrayList_AntonTeslia(int capacity) {
         if (capacity > 0) {
             elementData = (E[]) new Object[capacity];
@@ -22,11 +36,20 @@ public class IntensiveArrayList_AntonTeslia<E> implements IntensiveList<E> {
         }
     }
 
+    /**
+     * @return current list size
+     */
     @Override
     public int size() {
         return size;
     }
 
+    /**
+     * adding an item to the end of the list
+     *
+     * @param o the element being added
+     * @return true because implement interface
+     */
     @Override
     public boolean add(E o) {
         if (size + 1 > elementData.length) {
@@ -42,6 +65,12 @@ public class IntensiveArrayList_AntonTeslia<E> implements IntensiveList<E> {
         return true;
     }
 
+    /**
+     * adding an item by index
+     *
+     * @param index   where to add an element
+     * @param element the element being added
+     */
     @Override
     public void add(int index, E element) {
         if (size + 1 > elementData.length) {
@@ -57,12 +86,24 @@ public class IntensiveArrayList_AntonTeslia<E> implements IntensiveList<E> {
         size++;
     }
 
+    /**
+     * getting an item by index
+     *
+     * @param index of the received element
+     * @return the desired element
+     */
     @Override
     public E get(int index) {
         checkIndex(index);
         return (E) elementData[index];
     }
 
+    /**
+     * set an item by index
+     *
+     * @param index   where to set an element
+     * @param element the new element being
+     */
     @Override
     public E set(int index, E element) {
         checkIndex(index);
@@ -71,6 +112,12 @@ public class IntensiveArrayList_AntonTeslia<E> implements IntensiveList<E> {
         return oldValue;
     }
 
+    /**
+     * remove element by index
+     *
+     * @param index index of the element to be deleted
+     * @return old element
+     */
     @Override
     public E remove(int index) {
         checkIndex(index);
@@ -82,6 +129,9 @@ public class IntensiveArrayList_AntonTeslia<E> implements IntensiveList<E> {
         return oldValue;
     }
 
+    /**
+     * remove all elements
+     */
     @Override
     public void removeAll() {
         elementData = (E[]) new Object[10];
@@ -107,5 +157,13 @@ public class IntensiveArrayList_AntonTeslia<E> implements IntensiveList<E> {
         int result = Objects.hash(size);
         result = 31 * result + Arrays.hashCode(elementData);
         return result;
+    }
+
+    @Override
+    public String toString() {
+        return "IntensiveArrayList_AntonTeslia{" +
+                "size=" + size +
+                ", elementData=" + Arrays.toString(elementData) +
+                '}';
     }
 }

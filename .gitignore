@@ -1,9 +1,9 @@
-### IntelliJ IDEA ###
 out/
 !**/src/main/**/out/
 !**/src/test/**/out/
 intensive_36.iml
 target/
+### IntelliJ IDEA ###
 .idea
 *.iws
 *.iml
@@ -31,4 +31,5 @@ bin/
 .vscode/
 
 ### Mac OS ###
-.DS_Store
+.DS_Store!/Training.iml
+!/Training.iml
