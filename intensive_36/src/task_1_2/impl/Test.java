@@ -1,10 +1,11 @@
-package task_1_2;
+package task_1_2.impl;
 
 import task_1_1.impl.IntensiveArrayList_AntonTeslia;
+import task_1_2.impl.IntensiveCollections_AntonTeslia;
 
 public class Test {
     public static void main(String[] args) {
-        IntensiveArrayList_AntonTeslia<Integer> list= new IntensiveArrayList_AntonTeslia<>(6);
+        IntensiveArrayList_AntonTeslia<Integer> list = new IntensiveArrayList_AntonTeslia<>(6);
         list.add(1);
         list.add(100);
         list.add(80);

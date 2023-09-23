@@ -1,4 +1,4 @@
-package task_1_2;
+package task_1_2.impl;
 
 import task_1_1.IntensiveList;
 

@@ -1,6 +1,6 @@
 package task_1_1.impl;
 
-public class Main {
+public class Test {
     public static void main(String[] args) {
         IntensiveArrayList_AntonTeslia<String> s = new IntensiveArrayList_AntonTeslia<String>();
         s.add("1");
