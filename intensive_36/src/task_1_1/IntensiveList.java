@@ -1,6 +1,6 @@
 package task_1_1;
 
-public interface IntensiveList<E> {
+public interface IntensiveList<E extends Comparable<E>> {
 
     int size();
 
@@ -15,4 +15,6 @@ public interface IntensiveList<E> {
     Object remove(int index);
 
     void removeAll();
+
+    void add (IntensiveList<E> list);
 }
