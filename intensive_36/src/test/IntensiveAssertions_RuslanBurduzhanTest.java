@@ -7,6 +7,9 @@ import task_1_3.impl.IntensiveAssertions_RuslanBurduzhan;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Класс содержит тест-кейсы для класса IntensiveAssertions_RuslanBurduzhan.
+ */
 final class IntensiveAssertions_RuslanBurduzhanTest {
     private IntensiveArrayList_RuslanBurduzhan<Integer> myCollection;
     private List<Integer> originalCollection;
@@ -16,6 +19,9 @@ final class IntensiveAssertions_RuslanBurduzhanTest {
         this.originalCollection = new ArrayList<>();
     }
 
+    /**
+     * Метод запускает тест-кейсы и выводит результат выполнения в консоль.
+     */
     public void startAll() {
         TestUtils.showTestCaseName("IntensiveAssertions_RuslanBurduzhan");
         TestUtils.showTestResult("assertSort", assertSort());

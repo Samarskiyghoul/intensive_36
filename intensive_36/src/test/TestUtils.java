@@ -4,10 +4,26 @@ import task_1_1.impl.IntensiveArrayList_RuslanBurduzhan;
 
 import java.util.List;
 
+/**
+ * Класс содержит утилиты для тестирования.
+ * Он предоставляет методы для работы с цветами в консоли и сравнения элементов в коллекциях.
+ */
 final class TestUtils {
+    /**
+     * Константа для сброса цвета в консоли.
+     */
     private final static String ANSI_RESET = "\u001B[0m";
+    /**
+     * Константа для красного цвета в консоли.
+     */
     private final static String ANSI_RED = "\u001B[31m";
+    /**
+     * Константа для зеленого цвета в консоли.
+     */
     private final static String ANSI_GREEN = "\u001B[32m";
+    /**
+     * Константа для желтого цвета в консоли.
+     */
     private final static String ANSI_YELLOW = "\u001B[33m";
 
     /**
@@ -40,6 +56,9 @@ final class TestUtils {
      * @return если элементы в коллекциях равны возвращает true, иначе false.
      */
     public static <T> boolean compareElementsInCollections(IntensiveArrayList_RuslanBurduzhan<T> myCollection, List<T> originalCollection) {
+        if (myCollection.size() != originalCollection.size()) {
+            return false;
+        }
         for (int i = 0; i < myCollection.size(); i++) {
             if (!myCollection.get(i).equals(originalCollection.get(i))) {
                 return false;

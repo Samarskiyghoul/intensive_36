@@ -33,7 +33,7 @@ public class IntensiveCollections_RuslanBurduzhan {
      * @param heightIndex   индекс конца сортировки.
      * @param <E>           класс объектов в коллекции.
      * @return отсортированная по возрастанию коллекция.
-     * @throws IndexOutOfBoundsException - если index1 или index2 выходят за пределы диапазона
+     * @throws IndexOutOfBoundsException если index1 или index2 выходят за пределы диапазона
      *                                   (lowIndex < 0 || lowIndex >= size || heightIndex < 0 || heightIndex >= size).
      */
     public static <E extends Comparable<? super E>> IntensiveList<E> quickSort(IntensiveList<E> intensiveList, int lowIndex, int heightIndex) {
@@ -67,7 +67,7 @@ public class IntensiveCollections_RuslanBurduzhan {
      * @param index1        индекс первого элемента.
      * @param index2        индекс второго элемента.
      * @param <E>           класс объектов в коллекции.
-     * @throws IndexOutOfBoundsException - если index1 или index2 выходят за пределы диапазона
+     * @throws IndexOutOfBoundsException если index1 или index2 выходят за пределы диапазона
      *                                   (index1 < 0 || index1 >= size || index2 < 0 || index2 >= size).
      */
     public static <E> void swap(IntensiveList<E> intensiveList, int index1, int index2) {

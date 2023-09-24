@@ -6,7 +6,10 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-public final class IntensiveArrayList_RuslanBurduzhanTest {
+/**
+ * Класс содержит тест-кейсы для класса IntensiveArrayList_RuslanBurduzhan.
+ */
+final class IntensiveArrayList_RuslanBurduzhanTest {
     private IntensiveArrayList_RuslanBurduzhan<Employee> myCollection;
     private List<Employee> originalCollection;
     private
@@ -24,6 +27,9 @@ public final class IntensiveArrayList_RuslanBurduzhanTest {
         );
     }
 
+    /**
+     * Метод запускает тест-кейсы и выводит результат выполнения в консоль.
+     */
     void startAll() {
         TestUtils.showTestCaseName("IntensiveArrayList_RuslanBurduzhan");
         TestUtils.showTestResult("size", size());

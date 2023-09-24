@@ -9,9 +9,24 @@ import java.util.Spliterators;
 import java.util.stream.Stream;
 import java.util.stream.StreamSupport;
 
+/**
+ * Класс представляет собой реализацию интерфейсов IntensiveList и Iterable.
+ * Он предоставляет функциональность для работы с динамическим списком, основанном на внутреннем массиве.
+ *
+ * @param <E> класс объектов в коллекции.
+ */
 public class IntensiveArrayList_RuslanBurduzhan<E> implements IntensiveList<E>, Iterable<E> {
+    /**
+     * Количество элементов в коллекции.
+     */
     private int size;
+    /**
+     * Размер внутреннего массива коллекции.
+     */
     private int capacity;
+    /**
+     * Внутренний массив, на котором основана коллекция.
+     */
     private E[] dataArray;
 
     public IntensiveArrayList_RuslanBurduzhan() {
@@ -57,7 +72,7 @@ public class IntensiveArrayList_RuslanBurduzhan<E> implements IntensiveList<E>, 
      *
      * @param index   индекс, по которому должен быть вставлен указанный элемент.
      * @param element элемент, который нужно вставить.
-     * @throws IndexOutOfBoundsException - если индекс выходит за пределы диапазона ( index < 0 || index > size )
+     * @throws IndexOutOfBoundsException если индекс выходит за пределы диапазона ( index < 0 || index > size ).
      */
     @Override
     public void add(int index, E element) {
@@ -75,7 +90,7 @@ public class IntensiveArrayList_RuslanBurduzhan<E> implements IntensiveList<E>, 
      *
      * @param index индекс возвращаемого элемента.
      * @return элемент в указанной позиции.
-     * @throws IndexOutOfBoundsException - если индекс выходит за пределы диапазона ( index < 0 || index > size - 1 )
+     * @throws IndexOutOfBoundsException если индекс выходит за пределы диапазона ( index < 0 || index > size - 1 ).
      */
     @Override
     public E get(int index) {
@@ -89,7 +104,7 @@ public class IntensiveArrayList_RuslanBurduzhan<E> implements IntensiveList<E>, 
      * @param index   индекс элемента для замены.
      * @param element элемент, который будет сохранен в указанной позиции.
      * @return элемент ранее находившийся в указанной позиции.
-     * @throws IndexOutOfBoundsException - если индекс выходит за пределы диапазона ( index < 0 || index > size - 1 )
+     * @throws IndexOutOfBoundsException если индекс выходит за пределы диапазона ( index < 0 || index > size - 1 ).
      */
     @Override
     public E set(int index, E element) {
@@ -104,7 +119,7 @@ public class IntensiveArrayList_RuslanBurduzhan<E> implements IntensiveList<E>, 
      *
      * @param index индекс элемента, который нужно удалить.
      * @return элемент, который был удален из списка.
-     * @throws IndexOutOfBoundsException - если индекс выходит за пределы диапазона ( index < 0 || index > size - 1 )
+     * @throws IndexOutOfBoundsException если индекс выходит за пределы диапазона ( index < 0 || index > size - 1 ).
      */
     @Override
     public E remove(int index) {
@@ -127,7 +142,7 @@ public class IntensiveArrayList_RuslanBurduzhan<E> implements IntensiveList<E>, 
 
     /**
      * Изменяет емкость массива, увеличивая ее в два раза или устанавливая в 1, если исходная емкость была нулевой.
-     * Копирует существующие элементы в новый массив с обновленной емкостью
+     * Копирует существующие элементы в новый массив с обновленной емкостью.
      */
     private void resize() {
         capacity = capacity > 0 ? capacity * 2 : 1;
@@ -139,9 +154,9 @@ public class IntensiveArrayList_RuslanBurduzhan<E> implements IntensiveList<E>, 
     /**
      * Проверяет индекс на валидность и, если не проходит, выбрасывает IndexOutOfBoundsException
      *
-     * @param index      индекс
-     * @param upperBound верхняя граница
-     * @throws IndexOutOfBoundsException - если индекс выходит за пределы диапазона ( index < 0 || index > upperBound )
+     * @param index      индекс.
+     * @param upperBound верхняя граница.
+     * @throws IndexOutOfBoundsException если индекс выходит за пределы диапазона ( index < 0 || index > upperBound ).
      */
     private void checkByIndexOutOfBoundsException(int index, int upperBound) {
         if (index < 0 || index > upperBound) {
@@ -224,7 +239,7 @@ public class IntensiveArrayList_RuslanBurduzhan<E> implements IntensiveList<E>, 
          * Возвращает следующий элемент в итерации.
          *
          * @return следующий элемент в итерации.
-         * @throws NoSuchElementException - если в итерации больше нет элементов.
+         * @throws NoSuchElementException если в итерации больше нет элементов.
          */
         @Override
         public E next() {

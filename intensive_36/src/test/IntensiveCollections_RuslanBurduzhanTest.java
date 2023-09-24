@@ -8,6 +8,9 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Random;
 
+/**
+ * Класс содержит тест-кейсы для класса IntensiveCollections_RuslanBurduzhan.
+ */
 final class IntensiveCollections_RuslanBurduzhanTest {
     private IntensiveArrayList_RuslanBurduzhan<Integer> myCollection;
     private List<Integer> originalCollection;
@@ -17,6 +20,9 @@ final class IntensiveCollections_RuslanBurduzhanTest {
         this.originalCollection = new ArrayList<>();
     }
 
+    /**
+     * Метод запускает тест-кейсы и выводит результат выполнения в консоль.
+     */
     public void startAll() {
         TestUtils.showTestCaseName("IntensiveCollections_RuslanBurduzhan");
         TestUtils.showTestResult("quickSort", quickSort());

@@ -4,6 +4,7 @@ out/
 !**/src/test/**/out/
 .idea/
 intensive_36.iml
+javadoc
 
 ### Eclipse ###
 .apt_generated
