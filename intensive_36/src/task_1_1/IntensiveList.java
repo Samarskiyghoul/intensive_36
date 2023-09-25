@@ -8,11 +8,11 @@ public interface IntensiveList<E> {
 
     void add(int index, Object element);
 
-    Object get(int index);
+    E get(int index);
 
-    Object set(int index, Object element);
+    E set(int index, Object element);
 
-    Object remove(int index);
+    E remove(int index);
 
     void removeAll();
 }
