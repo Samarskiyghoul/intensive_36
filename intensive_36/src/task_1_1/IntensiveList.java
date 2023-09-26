@@ -1,18 +1,19 @@
 package task_1_1;
 
 public interface IntensiveList<E> {
-
     int size();
 
-    boolean add(Object o);
+    boolean add(E o);
 
-    void add(int index, Object element);
+    void add(int index, E element);
 
-    Object get(int index);
+    E get(int index);
 
-    Object set(int index, Object element);
+    void set(int index, E element);
 
-    Object remove(int index);
+    void remove(int index);
 
     void removeAll();
+
+    void display();
 }

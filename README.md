@@ -1,1 +1,1 @@
-# intensive_36
+Implementation of hand-made :^) Array list with quick sorting and sorting check.
